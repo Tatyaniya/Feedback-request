@@ -60,8 +60,6 @@ add_action( 'plugins_loaded', function () {
 
 }, 100, 0 );
 
-
-
 function feedback_request_show_nav_item() {
     $hook = add_menu_page(
         'Feedback Request',
@@ -132,13 +130,13 @@ function feedback_request_show_content() {
     <?php
 }
 
-register_uninstall_hook( __FILE__, 'frs_uninstall' );
+register_uninstall_hook( __FILE__, 'fr_uninstall' );
 
-function frs_uninstall() {
+function fr_uninstall() {
     global $wpdb;
 
     $wpdb->query( sprintf(
         "DROP TABLE IF EXISTS %s",
-        $wpdb->prefix . 'frs'
+        $wpdb->prefix . 'fr'
     ) );
 }
